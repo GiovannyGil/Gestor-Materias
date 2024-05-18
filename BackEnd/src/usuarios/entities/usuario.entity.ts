@@ -1,6 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, BeforeInsert, OneToOne, JoinColumn } from 'typeorm'
 import * as bcrypt from 'bcrypt'
-import { Rol } from 'src/rol/entities/rol.entity'
 import { join } from 'path';
 @Entity()
 export class Usuario {
@@ -31,16 +30,11 @@ export class Usuario {
     fechNacimiento: Date;
     @Column({ length: 100, nullable: true })
     Foto: string;
-    @Column({ type: 'boolean', nullable: false })
-    genero: boolean;
+    @Column({ length: 20, nullable: false })
+    genero: string;
     // fecha de registro, debe tomar la fecha actual automa
     @Column({ type: 'date', nullable: false })
     fechRegistro: Date;
     @BeforeInsert()
     async FechaRegistro() { this.fechRegistro = new Date() }
-
-    // AQUI VA EL CAMPO DE LA RELACION CON EL ROL
-    @OneToOne(() => Rol)
-    @JoinColumn()
-    rol: Rol;
 }

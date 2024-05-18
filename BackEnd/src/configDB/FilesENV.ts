@@ -4,7 +4,7 @@ const Datos = {
     Port: 3306,
     User: 'root',
     Password: '',
-    Database: 'gestorproyectosv1'
+    Database: 'gestormaterias'
 }
 
 export default Datos;

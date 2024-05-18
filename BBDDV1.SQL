@@ -1,6 +1,6 @@
-create database gestorproyectosv1
+create database gestormaterias
 
-use gestorproyectosv1
+use gestormaterias
 
 /* crear tabla USUARIOS */
 CREATE TABLE USUARIO(
@@ -13,8 +13,8 @@ CREATE TABLE USUARIO(
     pass varchar(30) not null,
     FechaNacimiento date NOT null,
     Foto varchar(100),
-    Genero boolean NOT null,
-    FechaRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Genero VARCHAR(20)  NOT null,
+    FechaRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 /* crear tabla MATERIA */
@@ -110,7 +110,7 @@ CREATE TABLE DOCUMENTOS(
 );
 
 /* tabla para detalles de Tarea - Documentos (Relacion) */
-CREATE TABLE DetalleTareaVideo(
+CREATE TABLE DetalleTareaDocs(
 	ID int NOT null AUTO_INCREMENT PRIMARY KEY,
     IDTarea int,
     IDDocs int,

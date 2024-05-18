@@ -1,0 +1,88 @@
+// TABLAS (ROL - USURIOS - MATERIA - TAREA - VIDEO - IMAGEN - AUDIO - DCUMENTOS & TABLAS DE DETALLES)
+
+ROL:
+- ID Int Primary key, not null auto_increment
+- Nombre Varchar(10) not null
+- Descripcion Varchar(200)
+
+USUARIOS
+- ID Int Primary key, not null auto_increment
+- UID Varchar(200) se crea automaticamente, not null
+- Nombres varchar (50) not null
+- Apellidos varchar (50) not null
+- Username Varchar(20) unique not null
+- Email Varchar(40) not null
+- FechaNacimiento date not null
+- Foto varchar(100) opcional/null // link o url a la ubicacion de la IMAGEN
+- Genero bool not null
+- FechaRegistro date -> default sisttem, not null
+- IDRol int not null, foreing key refecences ROL(ID)
+
+MATERIA
+- ID Int Primary key, not null auto_increment
+- Nombre varchar (50) not null
+- Descripcion Varchar(200)
+- Aprovacion int // nota que obtenida del primedio de las notas de las tareas
+- Estado int // inicial 0 -> pendiente (0: pendiente, 1: completado, 2: NoCompletado)
+
+
+TAREA
+- ID Int Primary key, not null auto_increment
+- Nombre varchar (50) not null
+- Descripcion Varchar(200)
+- Aprovacion int // nota sacada en la tarea
+- Estado int // inicial 0 -> pendiente (0: pendiente, 1: completado, 2: NoCompletado)
+- FechaLimite date // "cronometro" funcion para que se acabe sola, si se acaba y no se termino la tarea, el estado es 2
+
+Detalles-Materia-Tarea
+- ID Int Primary key, not null auto_increment
+- IDMateria int foreign key (MATERIA->ID)
+- IDTarea int foreign key (TAREA->ID)
+
+VIDEO
+- ID Int Primary key, not null auto_increment
+- Titulo Varchar(20)
+- Descripcion Varchar(200)
+- Upload varchar(100) null, // link de carpeta/ubicacion del archivo
+- link/URL //link de la unicacion en internet
+
+Detalles-VIDEO-Tarea
+- ID Int Primary key, not null auto_increment
+- IDVideo int foreign key (VIDEO->ID)
+- IDTarea int foreign key (TAREA->ID)
+
+IMAGEN
+- ID Int Primary key, not null auto_increment
+- Titulo Varchar(20)
+- Descripcion Varchar(200)
+- Upload varchar(100) null, // link de carpeta/ubicacion del archivo
+- link/URL //link de la unicacion en internet
+
+Detalles-IMAGEN-Tarea
+- ID Int Primary key, not null auto_increment
+- IDMateria int foreign key (IMAGEN->ID)
+- IDTarea int foreign key (TAREA->ID)
+
+AUDIO
+- ID Int Primary key, not null auto_increment
+- Titulo Varchar(20)
+- Descripcion Varchar(200)
+- Upload varchar(100) null, // link de carpeta/ubicacion del archivo
+- link/URL //link de la unicacion en internet
+
+Detalles-Audio-Tarea
+- ID Int Primary key, not null auto_increment
+- IDMateria int foreign key (VIDEO->ID)
+- IDTarea int foreign key (TAREA->ID)
+
+DCUMENTOS
+- ID Int Primary key, not null auto_increment
+- Titulo Varchar(20)
+- Descripcion Varchar(200)
+- Upload varchar(100) null, // link de carpeta/ubicacion del archivo
+- link/URL //link de la unicacion en internet
+
+Detalles-DCUMENTOS-Tarea
+- ID Int Primary key, not null auto_increment
+- IDMateria int foreign key (DCUMENTOS->ID)
+- IDTarea int foreign key (TAREA->ID)

@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, BeforeInsert, OneToOne, JoinColumn } from 'typeorm'
 import * as bcrypt from 'bcrypt'
 import { join } from 'path';
-@Entity()
+@Entity({ name: 'usuario'})
 export class Usuario {
     @PrimaryGeneratedColumn()
     id: number;

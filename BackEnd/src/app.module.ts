@@ -6,7 +6,6 @@ import { UsuariosModule } from './usuarios/usuarios.module';
 import { MateriaModule } from './materia/materia.module';
 import { TareaModule } from './tarea/tarea.module';
 import { RecursosModule } from './recursos/recursos.module';
-import { RolModule } from './rol/rol.module';
 import DDBB from './configDB/BataBase';
 
 @Module({
@@ -16,7 +15,6 @@ import DDBB from './configDB/BataBase';
     MateriaModule,
     TareaModule,
     RecursosModule,
-    RolModule,
     // IMPORTART LOS MODULOS DE LAS ENTIDADES
     
   ],

@@ -10,7 +10,7 @@ const DDBB: TypeOrmModuleOptions = {
     username: process.env.DDBB_USER || Datos.User,
     password: process.env.DDBB_PASS || Datos.Password,
     database: process.env.BBDD_NAME || Datos.Database,
-    entities: [__dirname + '/**/*.entity{.ts,.js}'],
+    entities: [__dirname + '/../**/*.entity{.ts,.js}'],
     synchronize: true,
 }
 
